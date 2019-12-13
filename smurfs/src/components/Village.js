@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Smurf from "./Smurf";
 import styled from "styled-components";
+import Form from "./Form";
 
 import { getSmurfs } from "../actions";
 
@@ -11,14 +12,24 @@ const VillageCont = styled.div`
   justify-content: space-around;
 `;
 
+const VillageButton = styled.button`
+  border-radius: 8px;
+  font-size: 1rem;
+  padding: 10px;
+  margin: 4%;
+`;
+
 const Village = props => {
   return (
     <div>
-      {/* {!props.smurfs && !props.isFetching && <>
-        
-        </>} */}
-      <h2>Smurfs are good at hiding...</h2>
-      <button onClick={props.getSmurfs}>Show Me The Smurfs</button>
+      {!props.smurfs && !props.isFetching && (
+        <>
+          <h2>Smurfs are good at hiding...</h2>
+          <VillageButton onClick={props.getSmurfs}>
+            Show Me The Smurfs
+          </VillageButton>
+        </>
+      )}
 
       {props.smurfs && !props.isFetching && (
         <>
@@ -33,6 +44,7 @@ const Village = props => {
               />
             ))}
           </VillageCont>
+          <Form />
         </>
       )}
     </div>

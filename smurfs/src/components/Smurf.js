@@ -11,9 +11,9 @@ const SmurfCard = styled.div`
 const Smurf = props => {
   return (
     <SmurfCard>
-      <p>{props.name}</p>
-      <p>{props.age}</p>
-      <p>{props.height}</p>
+      <p>Name: {props.name}</p>
+      <p>Age: {props.age} years</p>
+      <p>Height: {props.height}</p>
     </SmurfCard>
   );
 };

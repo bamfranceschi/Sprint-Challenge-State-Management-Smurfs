@@ -9,14 +9,15 @@ import {
 } from "../actions/index.js";
 
 const initialState = {
-  smurfs: [
-    {
-      name: null,
-      age: null,
-      height: null,
-      id: null
-    }
-  ],
+  smurfs: null,
+  //   [
+  //     {
+  //       name: null,
+  //       age: null,
+  //       height: null,
+  //       id: null
+  //     }
+  //   ],
 
   isFetching: false,
   isPosting: false,
