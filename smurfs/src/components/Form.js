@@ -1,28 +1,30 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { addNewSmurf } from "../actions";
+import { addNewSmurf, postNewSmurf } from "../actions";
 
 //post action goes here
 
 const Form = props => {
   const [newSmurf, setNewSmurf] = useState({ name: "", age: "", height: "" });
 
-  const handleChangesName = e => {
+  const handleChanges = e => {
     setNewSmurf({ ...newSmurf, [e.target.name]: e.target.value });
   };
 
-  const handleChangesAge = e => {
-    setNewSmurf({ ...newSmurf, [e.target.age]: e.target.value });
-  };
+  //   const handleChangesAge = e => {
+  //     setNewSmurf({ ...newSmurf, [e.target.age]: e.target.value });
+  //   };
 
-  const handleChangesHeight = e => {
-    setNewSmurf({ ...newSmurf, [e.target.height]: e.target.value });
-  };
+  //   const handleChangesHeight = e => {
+  //     setNewSmurf({ ...newSmurf, [e.target.height]: e.target.value });
+  //   };
 
   const handleSubmit = e => {
     e.preventDefault();
     props.addNewSmurf(newSmurf);
+    debugger;
+    props.postNewSmurf(newSmurf);
     setNewSmurf({ name: "", age: "", height: "" });
   };
 
@@ -32,23 +34,23 @@ const Form = props => {
         <input
           type="text"
           placeholder="name"
-          name="smurf_name"
+          name="name"
           value={newSmurf.name}
-          onChange={handleChangesName}
+          onChange={handleChanges}
         ></input>
         <input
           type="text"
           placeholder="age"
-          name="smurf_age"
+          name="age"
           value={newSmurf.age}
-          onChange={handleChangesAge}
+          onChange={handleChanges}
         ></input>
         <input
           type="text"
           placeholder="height"
-          name="smurf_height"
+          name="height"
           value={newSmurf.height}
-          onChange={handleChangesHeight}
+          onChange={handleChanges}
         ></input>
         <button type="submit">Add Smurf To The Village!</button>
       </form>
@@ -63,5 +65,5 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addNewSmurf })(Form);
+export default connect(mapStateToProps, { addNewSmurf, postNewSmurf })(Form);
 //post action comes in here

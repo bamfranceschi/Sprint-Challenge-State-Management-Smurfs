@@ -7,5 +7,6 @@ export {
   POST_SMURF_SUCCESS,
   POST_SMURF_FAILURE,
   getSmurfs,
-  addNewSmurf
+  addNewSmurf,
+  postNewSmurf
 } from "./action";

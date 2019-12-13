@@ -30,10 +30,12 @@ export const addNewSmurf = smurf => {
   };
 };
 
-export const postNewSmurf = () => dispatch => {
+export const postNewSmurf = data => dispatch => {
+  //need to include what data to post
+
   dispatch({ type: POST_SMURF_START });
   axios
-    .post("http://localhost:3333/smurfs")
+    .post("http://localhost:3333/smurfs", data)
     .then(res => {
       dispatch({ type: POST_SMURF_SUCCESS, payload: res.data });
     })

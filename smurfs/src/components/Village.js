@@ -1,8 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import Smurf from "./Smurf";
+import styled from "styled-components";
 
 import { getSmurfs } from "../actions";
+
+const VillageCont = styled.div`
+  display: flex;
+  flexwrap: wrap;
+  justify-content: space-around;
+`;
 
 const Village = props => {
   return (
@@ -16,7 +23,7 @@ const Village = props => {
       {props.smurfs && !props.isFetching && (
         <>
           <h2>You found them!</h2>
-          <div>
+          <VillageCont>
             {props.smurfs.map(smurf => (
               <Smurf
                 key={smurf.id}
@@ -25,7 +32,7 @@ const Village = props => {
                 height={smurf.height}
               />
             ))}
-          </div>
+          </VillageCont>
         </>
       )}
     </div>
