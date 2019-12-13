@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import Village from "./Village";
-import Form from "./Form";
 
 class App extends Component {
   render() {
